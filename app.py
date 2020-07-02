@@ -12,16 +12,16 @@ app = Flask(__name__)
 #Route the application to go to a specific path.
 @app.route("/")
 def index():
-    return render_template("index.html")
+     return render_template("index.html")
 
 @app.route("/response", methods=['GET'])
 def response():
     with open ('newsletter_data.csv') as f:
         reader = csv.reader(f, delimiter="\n")
-        #for i, line in enumerate(reader):
-        #    print('line[{}] = {}'.format(i, line))
-        print (reader)
-    return render_template("index.html", newsletter_data = reader)
+        reader_list=[]
+        for row in reader:
+            reader_list.append(row[0])
+    return render_template("index.html", newsletter_data = reader_list)
 
 #'app' is the instance for the Flask application.Run the application in a particular port!!
 if __name__=='__main__' :

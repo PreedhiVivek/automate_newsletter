@@ -35,7 +35,7 @@
             <button name="skype" class="block" type="submit">Get Skype data</button></p>
     </form>
 -->
-    <div action='/' method="get">
+<form action="{{ url_for('response') }}" method="GET">
         <table>
             <thead>
                 <tr>
@@ -46,14 +46,14 @@
             <tbody>
                 {% for data in newsletter_data %}
                 <tr>
-                    {% for value in data %}}
+                    
                     <td>
-                        {{ data[value] }}
+                        {{ data }}
                     </td>
                     <td>
-                        {{ data[value] }}
+                        {{ data[1] }}
                     </td>
-                    {% endfor %}
+                    
                 </tr>
                 {% endfor %}
             </tbody>
